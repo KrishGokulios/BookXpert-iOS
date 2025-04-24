@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeListTableCell" rowHeight="55" id="KGk-i7-Jjw" customClass="HomeListTableCell" customModule="BookXpertProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="437" height="55"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHz-gc-Xrc">
+                        <rect key="frame" x="10" y="0.0" width="417" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uct-yb-uwI">
+                                <rect key="frame" x="19.999999999999996" y="15.333333333333334" width="39.666666666666657" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" name="TextColor_LightDark"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Uct-yb-uwI" secondAttribute="trailing" constant="20" id="Nzk-GB-UsX"/>
+                            <constraint firstAttribute="height" constant="50" id="Qba-V1-igj"/>
+                            <constraint firstItem="Uct-yb-uwI" firstAttribute="leading" secondItem="gHz-gc-Xrc" secondAttribute="leading" constant="20" id="ZRp-VM-FFX"/>
+                            <constraint firstItem="Uct-yb-uwI" firstAttribute="centerY" secondItem="gHz-gc-Xrc" secondAttribute="centerY" id="lgW-3f-pv2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="gHz-gc-Xrc" secondAttribute="trailing" constant="10" id="Vfc-tx-j15"/>
+                    <constraint firstItem="gHz-gc-Xrc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Xkv-zI-Ngt"/>
+                    <constraint firstItem="gHz-gc-Xrc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bxD-sU-E4L"/>
+                    <constraint firstAttribute="bottom" secondItem="gHz-gc-Xrc" secondAttribute="bottom" id="pmE-Ku-QMd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellLblOL" destination="Uct-yb-uwI" id="RYs-BX-1i8"/>
+            </connections>
+            <point key="canvasLocation" x="106.10687022900763" y="23.591549295774648"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="TextColor_LightDark">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

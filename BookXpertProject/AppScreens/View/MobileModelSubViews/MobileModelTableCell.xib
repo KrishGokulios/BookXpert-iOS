@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="KGk-i7-Jjw" customClass="MobileModelTableCell" customModule="BookXpertProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="382" height="67"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="382" height="67"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Xk-Dg-Pfo" customClass="BorderView" customModule="BookXpertProject" customModuleProvider="target">
+                        <rect key="frame" x="5" y="5" width="372" height="57"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnK-c1-QOY">
+                                <rect key="frame" x="10.000000000000004" y="10" width="47.333333333333343" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMG-jd-tr9" customClass="UIControl">
+                                <rect key="frame" x="327" y="5" width="35" height="35"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deleteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="LSV-gc-470">
+                                        <rect key="frame" x="5.3333333333333126" y="7" width="24.333333333333329" height="21"/>
+                                        <color key="tintColor" systemColor="viewFlipsideBackgroundColor"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="LSV-gc-470" firstAttribute="height" secondItem="gMG-jd-tr9" secondAttribute="height" multiplier="0.6" id="7n3-Ov-mep"/>
+                                    <constraint firstAttribute="width" secondItem="gMG-jd-tr9" secondAttribute="height" multiplier="1:1" id="GFq-Mm-Vfc"/>
+                                    <constraint firstItem="LSV-gc-470" firstAttribute="centerX" secondItem="gMG-jd-tr9" secondAttribute="centerX" id="R13-9E-JKc"/>
+                                    <constraint firstAttribute="height" constant="35" id="Wg0-yq-Eu1"/>
+                                    <constraint firstItem="LSV-gc-470" firstAttribute="centerY" secondItem="gMG-jd-tr9" secondAttribute="centerY" id="Z9A-1o-IVy"/>
+                                    <constraint firstItem="LSV-gc-470" firstAttribute="width" secondItem="gMG-jd-tr9" secondAttribute="width" multiplier="0.7" id="lTQ-bF-Pri"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="didTapDelete:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jV9-In-i1w"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="G79-Mr-sdg"/>
+                            <constraint firstItem="wnK-c1-QOY" firstAttribute="leading" secondItem="0Xk-Dg-Pfo" secondAttribute="leading" constant="10" id="P25-zO-AFR"/>
+                            <constraint firstItem="wnK-c1-QOY" firstAttribute="top" secondItem="0Xk-Dg-Pfo" secondAttribute="top" constant="10" id="SPx-Vj-Htf"/>
+                            <constraint firstAttribute="bottom" secondItem="wnK-c1-QOY" secondAttribute="bottom" constant="10" id="d6S-Fq-7au"/>
+                            <constraint firstItem="gMG-jd-tr9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wnK-c1-QOY" secondAttribute="trailing" constant="15" id="jXs-2O-6h2"/>
+                            <constraint firstItem="gMG-jd-tr9" firstAttribute="top" secondItem="0Xk-Dg-Pfo" secondAttribute="top" constant="5" id="n0m-ec-koH"/>
+                            <constraint firstAttribute="trailing" secondItem="gMG-jd-tr9" secondAttribute="trailing" constant="10" id="zpq-3J-VSd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="0Xk-Dg-Pfo" secondAttribute="bottom" constant="5" id="2BM-zX-t0C"/>
+                    <constraint firstItem="0Xk-Dg-Pfo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Dof-Kt-FCT"/>
+                    <constraint firstItem="0Xk-Dg-Pfo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ns1-4H-wgn"/>
+                    <constraint firstAttribute="trailing" secondItem="0Xk-Dg-Pfo" secondAttribute="trailing" constant="5" id="zfC-AO-9Ge"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bgViewOL" destination="0Xk-Dg-Pfo" id="zeD-gH-OAv"/>
+                <outlet property="deleteControlOL" destination="gMG-jd-tr9" id="0Gh-aq-5nC"/>
+                <outlet property="deleteImgOL" destination="LSV-gc-470" id="SiD-WR-X7Q"/>
+                <outlet property="nameLblOL" destination="wnK-c1-QOY" id="Cv2-OU-bv4"/>
+            </connections>
+            <point key="canvasLocation" x="64.122137404580144" y="27.816901408450704"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="deleteIcon" width="20" height="22"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
