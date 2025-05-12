@@ -4,6 +4,7 @@
 
 
 import UIKit
+import UserNotifications
 
 class MobileModelListVC: UIViewController {
     
@@ -110,19 +111,35 @@ extension MobileModelListVC: BackNavigationSubViewDelegate{
 }
 
 extension MobileModelListVC: MobileModelCellDelegate{
-    func deleteMobileModel(indexPos: Int,data:MobileModelList){
-        print("Delete Mobile Model \(indexPos): \(data)")
+    func deleteMobileModel(indexPos: Int, data: MobileModelList, name: String) {
+        print("Delete Mobile Model \(name) \(indexPos): \(data)")
         self.coreDataClass.deleteMobileModel(data) { success, message, error in
-            self.viewModel.mobileModelListData.remove(at: indexPos)
-            self.listTableviewOL.reloadData()
-            if UserDefault.shared.getAllowNotificationService(){
-                self.viewModel.sendFCMNotificationMethod(title: data.name ?? "" , body: "Mobile Model Deleted", itemId: data.id ?? "") { success in
-                    if success{
-                        print("Notification Sent Successfully")
-                    }else{
-                        print("Notification Sending Failed")
-                    }
+            if success{
+                self.viewModel.mobileModelListData.remove(at: indexPos)
+                self.listTableviewOL.reloadData()
+                if UserDefault.shared.getAllowNotificationService(){
+                    self.scheduleLocalNotification(title: "Deleted", body: "\(name) Mobile Model Deleted")
                 }
+            }
+        }
+    }
+}
+
+extension MobileModelListVC{ //MARK: Trigger Local Notification
+    func scheduleLocalNotification(title: String, body: String) {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Local Notification Error:", error.localizedDescription)
+            } else {
+                print("Local Notification Scheduled")
             }
         }
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MobileModelCellDelegate{
-    func deleteMobileModel(indexPos: Int,data:MobileModelList)
+    func deleteMobileModel(indexPos: Int, data:MobileModelList, name:String)
 }
 
 class MobileModelTableCell: UITableViewCell {
@@ -34,7 +34,7 @@ class MobileModelTableCell: UITableViewCell {
     
     @IBAction func didTapDelete(_ sender: UIControl) {
         if let delegate = self.delegate, let data = self.mobileModelData{
-            delegate.deleteMobileModel(indexPos: sender.tag, data: data)
+            delegate.deleteMobileModel(indexPos: sender.tag, data: data, name: data.name ?? "")
         }
     }
     
