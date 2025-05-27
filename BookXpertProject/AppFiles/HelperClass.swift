@@ -26,6 +26,8 @@ class NetworkConnectivity {
 class  URLConstants {
     
     static let getMobileModelUrl = "https://api.restful-api.dev/objects"
+    
+    static let accessToken = ""
 }
 
 

@@ -7,41 +7,30 @@ import FirebaseAuth
 import CoreData
 import GoogleSignIn
 
-typealias MobileModelListDataReponse = (_ success: Bool, _ response: [MobileModelListModel]?, _ error: NSError?) -> Void
+typealias MobileModelListDataReponse =  (_ success: Bool, _ response: [MobileModelListModel]?, _ error: ApiServiceError?) -> Void
 typealias MobileListDataFetchReponse = (_ success: Bool, _ message: String) -> Void
 
-
 class SignInViewModel: NSObject{
-    var serviceClass: APIService
     let decoder = JSONDecoder()
-    init( apiService: APIService = APIService()) {
-        self.serviceClass = apiService
-    }
     lazy var coreDataClass: AppCoreDataClass = {
         return AppCoreDataClass()
     }()
-    
     var mobileModelListData: [MobileModelList] = [MobileModelList]()
-//    var mobileModelListData: [MobileModelListModel] = [MobileModelListModel]()
     
-    //MARK: Get- Care Management Dashboard Api Call
     func getMobileModelListApi(completion: @escaping MobileModelListDataReponse) {
-        self.serviceClass.getAPIRequest(URLConstants.getMobileModelUrl) { response in
-            do {
-                let jsonData = try? self.decoder.decode([MobileModelListModel].self, from: response)
-//                self.mobileModelListData = jsonData ?? []
+        APIService.instance.getAPIRequest(URLConstants.mainDashUrl) { response in
+            if let jsonData = self.decoder.safeDecode([MobileModelListModel].self, from: response){
                 self.coreDataClass.saveMobileModelsToCoreData(jsonData ?? []) { success, message, error in
                     if success{
                         print("Mobile Models Saved to CoreData")
                     }
                 }
                 completion(true,jsonData, nil)
-            } catch{
-                completion(false, nil, error as NSError)
+            }else{
+                completion(false, nil, .decodingError)
             }
         } failure: { error in
-            print("Error->\(error)")
-            completion(false, nil, nil)
+            completion(false, nil, error)
         }
     }
     
@@ -52,7 +41,6 @@ class SignInViewModel: NSObject{
         }else{
             completion(true,"")
         }
-        
     }
     
     func sendFCMNotificationMethod(title: String, body: String, itemId: String, completion: @escaping NotificationSuccessResponse) {
@@ -69,7 +57,7 @@ class SignInViewModel: NSObject{
                 ]
             ]
         ]
-        serviceClass.sendFCMNotificationMethod(accessToken: accessToken, payload: payload) { success in
+        APIService.instance.sendFCMNotificationMethod(accessToken: accessToken, payload: payload) { success in
             completion(success)
         }
     }
