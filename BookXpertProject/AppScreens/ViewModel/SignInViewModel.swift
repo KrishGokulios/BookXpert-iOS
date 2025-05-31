@@ -18,7 +18,7 @@ class SignInViewModel: NSObject{
     var mobileModelListData: [MobileModelList] = [MobileModelList]()
     
     func getMobileModelListApi(completion: @escaping MobileModelListDataReponse) {
-        APIService.instance.getAPIRequest(URLConstants.mainDashUrl) { response in
+        APIService.instance.getAPIRequest(URLConstants.getMobileModelUrl) { response in
             if let jsonData = self.decoder.safeDecode([MobileModelListModel].self, from: response){
                 self.coreDataClass.saveMobileModelsToCoreData(jsonData ?? []) { success, message, error in
                     if success{
