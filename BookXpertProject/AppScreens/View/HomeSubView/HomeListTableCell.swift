@@ -23,8 +23,8 @@ class HomeListTableCell: UITableViewCell {
     }
     
     func homeListCellConfig(configData: HomeListDataModel){
-        self.cellLblOL.text = configData.description
-        if let cellImg = UIImage(named: configData.imageName){
+        self.cellLblOL.text = configData.description ?? ""
+        if let cellImg = UIImage(named: configData.imageName ?? ""){
             self.cellImgOL.image = cellImg
         }
     }

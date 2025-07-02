@@ -106,7 +106,9 @@ extension HomePageVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigateToScreens(code: self.homeListData[indexPath.row].listCode)
+        if let code = self.homeListData[indexPath.row].listCode{
+            self.navigateToScreens(code: code)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

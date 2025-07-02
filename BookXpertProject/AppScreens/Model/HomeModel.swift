@@ -5,12 +5,11 @@
 //  Created by CredoUser on 23/04/25.
 //
 
-class HomeListDataModel {
-    var description = ""
-    var imageName = ""
-    var listCode: HomeListCode = .pdfView
+struct HomeListDataModel {
+    let description, imageName:String?
+    let listCode: HomeListCode?
     
-    init(description: String, imageName: String, listCode: HomeListCode) {
+    init(description: String?, imageName: String?, listCode: HomeListCode?) {
         self.description = description
         self.imageName = imageName
         self.listCode = listCode
@@ -77,86 +76,3 @@ struct MobileModelEditModel{
 enum EditMobileDetailCode:String{
     case name,capacityGB, price, generation, capacity, descriptionData,dataColor, dataCapacity, dataPrice, dataGeneration, year, cpuModel, hardDiskSize, strapColour, caseSize, color, screenSize
 }
-class a{
-    var modifyMobileModelData:MobileModelList?
-    
-    func uiSetup(){
-        var mobileListData = [MobileModelEditModel(title: "Name", description: modifyMobileModelData?.name ?? "", code: .name),
-                              MobileModelEditModel(title: "CapacityGB", description: modifyMobileModelData?.dataCapacity ?? "", code: .capacityGB),
-                              MobileModelEditModel(title: "Price", description: modifyMobileModelData?.price ?? "", code: .capacityGB),
-                              MobileModelEditModel(title: "Generation", description: modifyMobileModelData?.generation ?? "", code: .generation),
-                              MobileModelEditModel(title: "Capacity", description: modifyMobileModelData?.capacity ?? "", code: .capacity),
-                              MobileModelEditModel(title: "DescriptionData", description: modifyMobileModelData?.descriptionData ?? "", code: .descriptionData),
-                              MobileModelEditModel(title: "DataColor", description: modifyMobileModelData?.dataColor ?? "", code: .dataColor),
-                              MobileModelEditModel(title: "DataCapacity", description: modifyMobileModelData?.dataCapacity ?? "", code: .dataCapacity),
-                              MobileModelEditModel(title: "DataPrice", description: "\(modifyMobileModelData?.dataPrice ?? 0)", code: .dataPrice),
-                              MobileModelEditModel(title: "DataGeneration", description: modifyMobileModelData?.dataGeneration ?? "", code: .dataGeneration),
-                              MobileModelEditModel(title: "Year", description: "\(modifyMobileModelData?.year ?? 0)", code: .year),
-                              MobileModelEditModel(title: "CPU Model", description: modifyMobileModelData?.cpuModel ?? "", code: .cpuModel),
-                              MobileModelEditModel(title: "Hard Disk Size", description: modifyMobileModelData?.hardDiskSize ?? "", code: .hardDiskSize),
-                              MobileModelEditModel(title: "Strap Colour", description: modifyMobileModelData?.strapColour ?? "", code: .strapColour),
-                              MobileModelEditModel(title: "Case Size", description: modifyMobileModelData?.caseSize ?? "", code: .caseSize),
-                              MobileModelEditModel(title: "Color", description: modifyMobileModelData?.color ?? "", code: .color),
-                              MobileModelEditModel(title: "Screen Size", description: "\(modifyMobileModelData?.screenSize ?? 0)", code: .screenSize),
-                              
-                              
-                            ]
-        
-        
-        
-        
-    }
-}
-    
-
-
-
-//enum EditMobileDetailCode:String{
-//    case name,capacityGB, price   
-//}
-//
-///*
-// dataColor
-// dataCapacity
-// capacityGB
-// dataPrice
-// dataGeneration
-// year
-// cpuModel
-// hardDiskSize
-// strapColour
-// caseSize
-// color
-// descriptionData
-// capacity
-// screenSize
-// generation
-// price
-//
-//
-//*/
-
-/*
- 
- 
- 
- name
- dataColor
- dataCapacity
- capacityGB
- dataPrice
- dataGeneration
- year
- cpuModel
- hardDiskSize
- strapColour
- caseSize
- color
- descriptionData
- capacity
- screenSize
- generation
- price
- 
- 
- */
